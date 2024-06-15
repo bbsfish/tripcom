@@ -1,0 +1,145 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playwrite+AU+VIC:wght@100..400&display=swap");
+:root {
+  --black: black;
+  --accent: rgb(54, 255, 27);
+}
+
+* {
+  box-sizing: content-box;
+  margin: 0;
+  zoom: 1;
+}
+
+html {
+  font-size: 16px;
+}
+
+header, footer, main {
+  padding: 0 1rem;
+}
+
+main {
+  min-height: 90vh;
+  font-family: "Kanit", sans-serif;
+}
+
+/*
+ * 共通スタイル
+ */
+a, li {
+  text-decoration: none;
+  list-style: none;
+  color: var(--black);
+}
+
+/**
+ * ヘッダー
+ */
+header {
+  display: flex;
+  justify-content: space-between;
+  transition: 0.6s;
+}
+header .logo {
+  display: inline-block;
+  font-family: "Playwrite AU VIC", cursive;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+header .logo a {
+  color: var(--accent);
+}
+header .logo a:hover {
+  opacity: 0.6;
+}
+header .menu {
+  display: flex;
+  gap: 1rem;
+}
+header .menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .menu li a {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  padding: 0.3rem 0;
+  position: relative;
+}
+header .menu li a::after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  bottom: -1px; /*アンダーラインがaタグの下端から現れる*/
+  transform: scale(0, 1); /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+  transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+  transition: transform 0.3s; /*変形の時間*/
+}
+header .menu li a:hover::after {
+  transform: scale(1, 1); /*ホバー後、x軸方向に1（相対値）伸長*/
+}
+
+/**
+ * メイン
+ */
+main h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/**
+ * 希望送信フォームの設定
+ */
+@keyframes fadeOutOrderRow {
+  0% {
+    /* アニメーション開始時の指定 */
+    height: 200px;
+  }
+  100% {
+    /* アニメーション終了時の指定 */
+    height: 0;
+  }
+}
+.order {
+  text-align: center;
+}
+.order h2 {
+  margin-bottom: 0.8rem;
+}
+.order button, .order input {
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  background-color: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  transition: 0.4s;
+}
+.order button:hover, .order input:hover {
+  cursor: pointer;
+  border-color: var(--accent);
+  background-color: var(--accent);
+}
+.order__row {
+  display: inline-block;
+  border: 1px solid var(--black);
+  border-radius: 0.8rem;
+  margin: 0 auto;
+  padding: 2rem 0.8rem;
+  transition: 0.6s;
+  height: 200px;
+  width: 80vw;
+  line-height: initial;
+}
+.order__row.order-minimize, .order__row.order-minimize * {
+  height: 0;
+  padding: 0 inherit;
+  margin: 0 inherit;
+  opacity: 0;
+  line-height: 0;
+}/*# sourceMappingURL=style.css.map */
