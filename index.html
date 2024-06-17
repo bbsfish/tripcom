@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trip Tokyo</title>
-  <script src="./scripts/main.js"></script>
+  <script src="./scripts/main.js" type="module"></script>
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/loaderview.css">
 </head>
 <body>
   <header>
@@ -22,36 +23,57 @@
     <form name="order" class="order">
       <div class="order__row select-one">
         <h2>How do you decide on a tour?</h2>
+        <input type="hidden" name="label" value="How do you decide on a tour?" />
         <button type="button">Activity</button>
         <button type="button">Our proposal</button>
         <button type="button">Or, you need photographer</button>
       </div>
       <div class="order__row select-mulitple order-minimize" style="display: none;">
         <h2>What kind of activity is it?</h2>
+        <input type="hidden" name="label" value="What kind of activity is it?" />
         <button type="button">Karaoke</button>
         <button type="button">Bowling</button>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Next >>" />
       </div>
       <div class="order__row select-one order-minimize" style="display: none;">
         <h2>Do you want to spend money?</h2>
+        <input type="hidden" name="label" value="Do you want to spend money?" />
         <button type="button">Spend money</button>
         <button type="button">Free</button>
       </div>
       <div class="order__row select-one order-minimize" style="display: none;">
         <h2>How do you want to pay?</h2>
+        <input type="hidden" name="label" value="How do you want to pay?" />
         <button type="button">Advance payment</button>
         <button type="button">Paying on a case-by-case basis</button>
       </div>
       <div class="order__row select-textarea order-minimize" style="display: none;">
         <h2>If you have something to tell us, please write it down.</h2>
-        <textarea></textarea>
-        <input type="submit" value="Submit" />
+        <input type="hidden" name="label" value="If you have something to tell us, please write it down" />
+        <textarea placeholder="Do you have anything to tell us? "></textarea>
+        <input type="submit" value="Next >>" />
+      </div>
+      <div class="order__row select-input-email order-minimize" style="display: none;">
+        <h2>Finally, please give us your email address.</h2>
+        <input type="hidden" name="label" value="Your Email" />
+        <input type="email" name="email" id="user-email" value="" placeholder="Your Email">
+        <input type="submit" value="Confirm" />
       </div>
       <div class="order__row order-minimize" id="order-end" style="display: none;">
-        <input type="submit" value="Submit" />
+        <h2>Please review and submit your request.</h2>
+        <div class="order-content"></div>
+        <input type="submit" value="Send your order" />
       </div>
     </form>
   </main>
   <footer></footer>
+
+  <!-- loaderview.js インポート -->
+  <script src="./scripts/" inline></script>
+
+  <!-- loaderview テンプレート -->
+  <div id="loaderview" class="loaderview">
+    <p class="loaderview txt" id="loaderview_message"></p>
+  </div>
 </body>
 </html>
